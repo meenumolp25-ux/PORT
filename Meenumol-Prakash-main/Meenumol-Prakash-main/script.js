@@ -10,7 +10,48 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initScrollProgress();
     initMouseTracking();
+    initJournalModal();
 });
+
+// ===== JOURNAL MODAL HANDLER =====
+function initJournalModal() {
+    const cards = document.querySelectorAll('.journal-card');
+    const modal = document.getElementById('journalModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    const details = document.getElementById('journalDetails');
+
+    if (!modal || !details) return;
+
+    const openModal = (day) => {
+        const node = details.querySelector(`[data-day='${day}']`);
+        if (!node) return;
+        modalTitle.innerHTML = node.querySelector('h3') ? node.querySelector('h3').innerHTML : `Day ${day}`;
+        modalContent.innerHTML = node.querySelector('p') ? node.querySelector('p').outerHTML + (node.querySelector('pre') ? node.querySelector('pre').outerHTML : '') : node.innerHTML;
+        modal.classList.add('show');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const day = card.getAttribute('data-day');
+            openModal(day);
+        });
+    });
+
+    modal.querySelectorAll('.modal-close, .modal-backdrop').forEach(el => el.addEventListener('click', closeModal));
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+    });
+}
 
 // ===== THEME TOGGLE =====
 function initThemeToggle() {

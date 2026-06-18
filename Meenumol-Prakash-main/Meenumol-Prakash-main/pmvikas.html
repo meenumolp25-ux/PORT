@@ -231,134 +231,75 @@
             </div>
 
             <div class="journal-content">
-                <article class="journal-summary">
-                    <h3>Overview</h3>
-                    <p>This learning journal documents the <strong>Pradhan Mantri Vishwakarma Kaushal Samman (PM Vikas)</strong> programme at IIIT Kottayam covering fundamentals from electronics to Arduino and IoT.</p>
-                </article>
+                <div class="journal-grid">
+                    <!-- Clickable day cards (Day 1–17) -->
+                    <!-- Each card has data-day pointing to detail content below -->
+                    <div class="bento-grid">
+                        <!-- Generate day cards 1..17 -->
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="1"><div class="bento-content"><h4>Day 1 — Orientation & Circuit Fundamentals</h4><p>Intro to voltage, current, resistance, Ohm's Law and safe lab practice.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="2"><div class="bento-content"><h4>Day 2 — Diodes & Rectifiers</h4><p>PN junctions, VI curves, half/full-wave rectifiers and filtering.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="3"><div class="bento-content"><h4>Day 3 — Resistive Networks</h4><p>Thevenin/Norton equivalents and resistive simplification exercises.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="4"><div class="bento-content"><h4>Day 4 — Capacitors & Time Constants</h4><p>RC charging/discharging, time constants and signal shaping.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="5"><div class="bento-content"><h4>Day 5 — Inductors & LC Behaviour</h4><p>Inductance, RL transients, LC resonance and tank circuits.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="6"><div class="bento-content"><h4>Day 6 — IoT Product Ideation</h4><p>Smart-home concept, data flows and user scenarios for prototype.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="7"><div class="bento-content"><h4>Day 7 — Semiconductor Basics</h4><p>Carrier movement, doping, energy bands, and device behaviour.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="8"><div class="bento-content"><h4>Day 8 — Transistors</h4><p>BJT vs MOSFET, biasing, and small-signal amplifier setups.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="9"><div class="bento-content"><h4>Day 9 — Amplifiers & Gain</h4><p>Gain measurement, bandwidth and stability of amplifier circuits.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="10"><div class="bento-content"><h4>Day 10 — MOSFET Switching</h4><p>Designing MOSFET drivers and switching stages for power control.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="11"><div class="bento-content"><h4>Day 11 — Op-Amps</h4><p>Inverting/non-inverting, summing amps and real vs ideal behaviour.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="12"><div class="bento-content"><h4>Day 12 — Analog Filters</h4><p>Low-pass/high-pass filter design, cutoff selection and limitations.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="13"><div class="bento-content"><h4>Day 13 — Signal Analysis</h4><p>Fourier basics and oscilloscope measurement techniques.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="14"><div class="bento-content"><h4>Day 14 — Digital Logic Basics</h4><p>Boolean algebra, gates, truth tables, and hands-on experiments.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="15"><div class="bento-content"><h4>Day 15 — Karnaugh Maps</h4><p>Simplification using K-maps to reduce gate count in designs.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="16"><div class="bento-content"><h4>Day 16 — Combinational Circuits</h4><p>Encoders, decoders, multiplexers and arithmetic blocks design.</p></div></div>
+                        <div class="bento-card bento-col-span-2 journal-card" data-day="17"><div class="bento-content"><h4>Day 17 — Sequential Circuits</h4><p>Latches, flip-flops, state machines and basic counters.</p></div></div>
+                    </div>
+                </div>
 
-                <article class="journal-day">
-                    <h4>Day 01: Resistors, Ohm's Law, KCL &amp; KVL</h4>
-                    <p><strong>Instructor:</strong> Dr. Anand — HOD ECE, IIIT Kottayam</p>
-                    <p><strong>Course Overview:</strong> Network Theory, Circuits &amp; Networks, Basic Electronics, and Rectification. Real-world example: hardware inside a heart rate monitor.</p>
-                    <h5>Rectification &amp; Charger Internals</h5>
-                    <p>Full-wave rectifier (bridge) producing pulsating DC, then filtered by RC / RLC / LC filters. RC filter often used to smooth output. Voltage dividers used to step voltages (e.g., 12V → 5V).</p>
-                    <h5>Resistors</h5>
-                    <ul>
-                        <li>No polarity; measured in Ohms.</li>
-                        <li>Surface-mount resistors are common on modern PCBs.</li>
-                        <li>Series: same current, R_total = R1 + R2 + ...</li>
-                        <li>Parallel: same voltage, 1/R_total = 1/R1 + 1/R2 + ...</li>
-                    </ul>
-                    <h5>Ohm's Law &amp; Kirchhoff</h5>
-                    <p>V = R × I. Ammeter in series; voltmeter in parallel. KCL: currents at a node sum to zero. KVL: voltage drops around a loop sum to zero.</p>
-                </article>
+                <!-- Hidden detailed content sourced from daily-work (Day 1–17) -->
+                <div id="journalDetails" style="display:none;">
+                    <div data-day="1"><h3>Day 1 — Orientation & Circuit Fundamentals</h3><p>Introduced to basic circuit concepts: voltage, current, resistance, Ohm's Law, series/parallel networks. Lab demonstration clarified measurement techniques and safe handling of components.</p></div>
+                    <div data-day="2"><h3>Day 2 — Diodes & Rectifiers</h3><p>Studied PN junction behavior, VI curves, and practical rectifier circuits. Built and observed half-wave and full-wave rectification and discussed filter capacitors' role.</p></div>
+                    <div data-day="3"><h3>Day 3 — Resistive Networks & Thevenin/Norton</h3><p>Worked through equivalent circuits, Thevenin and Norton theorems, and practice problems simplifying complex resistive networks to compute load behavior.</p></div>
+                    <div data-day="4"><h3>Day 4 — Capacitors & Time Constants</h3><p>Explored transient response of RC circuits, charging/discharging curves, and how time constants affect signal shaping and filtering.</p></div>
+                    <div data-day="5"><h3>Day 5 — Inductors & LC Behaviour</h3><p>Focused on inductance, RL transients, and LC resonance. Built an LC tank circuit and observed frequency-dependent responses.</p></div>
+                    <div data-day="6"><h3>Day 6 — IoT Product Ideation</h3><p>Brainstormed IoT project ideas, selected an initial smart-home integration concept, and sketched data flows and user scenarios for a prototype.</p></div>
+                    <div data-day="7"><h3>Day 7 — Semiconductor Basics</h3><p>Reviewed carrier movement, doping, energy bands, and how material properties translate to device characteristics used in circuits.</p></div>
+                    <div data-day="8"><h3>Day 8 — Transistors: BJT & MOSFET</h3><p>Compared BJT and MOSFET operation, biasing techniques, and small-signal models; set up simple amplifier stages on the bench.</p></div>
+                    <div data-day="9"><h3>Day 9 — Amplifiers & Gain</h3><p>Measured gain, bandwidth, and input/output impedance of basic amplifier configurations; discussed trade-offs and stability concerns.</p></div>
+                    <div data-day="10"><h3>Day 10 — MOSFET Circuits & Switching</h3><p>Examined MOSFET switching characteristics and designed driver stages for power switching and logic-level control.</p></div>
+                    <div data-day="11"><h3>Day 11 — Op-Amps & Applications</h3><p>Explored operational amplifier configurations: inverting, non-inverting, summing, and filters; analyzed ideal vs real behaviours.</p></div>
+                    <div data-day="12"><h3>Day 12 — Analog Filters</h3><p>Designed and simulated low-pass and high-pass filters, discussed cutoff frequency selection and real-component limitations.</p></div>
+                    <div data-day="13"><h3>Day 13 — Signal Analysis</h3><p>Covered Fourier basics, frequency-domain intuition, and practical signal measurement techniques using the oscilloscope.</p></div>
+                    <div data-day="14"><h3>Day 14 — Digital Logic Basics</h3><p>Introduced boolean algebra, logic gates, truth tables, and hazard considerations. Performed hands-on TTL/CMOS gate experiments.</p></div>
+                    <div data-day="15"><h3>Day 15 — Karnaugh Maps & Simplification</h3><p>Practiced K-map simplification to minimize gate count and derived efficient combinational implementations for sample problems.</p></div>
+                    <div data-day="16"><h3>Day 16 — Combinational Circuits</h3><p>Designed encoders, decoders, multiplexers, and arithmetic building blocks; discussed propagation delay and practical implementations.</p></div>
+                    <div data-day="17"><h3>Day 17 — Sequential Circuits</h3><p>Covered latches, flip-flops, state machines, and timing diagrams. Implemented simple counters and state-based controllers.</p></div>
+                </div>
 
-                <article class="journal-day">
-                    <h4>Day 02: Diodes &amp; Rectifiers</h4>
-                    <p><strong>Instructor:</strong> Dr. Anand</p>
-                    <p>Studied V–I characteristics of diodes, forward/reverse bias, diode as switch. Covered half-wave and full-wave rectifiers, clamper circuits and switch regulators.</p>
-                </article>
+                <!-- Modal for detailed journal entry -->
+                <div id="journalModal" class="modal" aria-hidden="true">
+                    <div class="modal-backdrop"></div>
+                    <div class="modal-panel">
+                        <button class="modal-close" aria-label="Close">×</button>
+                        <div class="modal-body">
+                            <h3 id="modalTitle"></h3>
+                            <div id="modalContent"></div>
+                        </div>
+                    </div>
+                </div>
 
-                <article class="journal-day">
-                    <h4>Day 03: Computer Networks &amp; VS Code Setup</h4>
-                    <p>Installed <strong>VS Code</strong> in a VM for development. Reviewed IEEE 802.3 (Ethernet) and IEEE 802.11 (Wi‑Fi). Covered the five components of data communication: Sender, Medium, Message, Receiver, Protocol.</p>
-                </article>
+                <style>
+                /* Simple modal styles */
+                .modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 9999; }
+                .modal.show { display: flex; }
+                .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
+                .modal-panel { position: relative; background: var(--bg-card, #fff); color: var(--text, #111); max-width: 760px; width: 94%; border-radius: 12px; padding: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 2; }
+                .modal-close { position: absolute; right: 12px; top: 8px; background: transparent; border: none; font-size: 1.6rem; cursor: pointer; }
+                .modal-body h3 { margin-top: 0; }
+                .journal-card { cursor: pointer; }
+                </style>
 
-                <article class="journal-day">
-                    <h4>Day 04: IoT Fundamentals &amp; M2M Applications</h4>
-                    <p><strong>Instructor:</strong> Shajulin Sir</p>
-                    <p>Discussed M2M applications (healthcare, smart homes, IIoT, ITS, smart retail), IoT subsets (IIoT, CIoT, Space-IoT, IIoMT), and research challenges (trustworthy IoT with AI).</p>
-                </article>
-
-                <article class="journal-day">
-                    <h4>Day 05: IoT Product Ideation — Smart Home &amp; Cybersecurity</h4>
-                    <p>Design task: smart home solution for elderly with integrated cybersecurity, SOS alerts, and smart access for delivery personnel.</p>
-                </article>
-
-                <article class="journal-day">
-                    <h4>Day 06: History of Electronics &amp; Components</h4>
-                    <p><strong>Instructor:</strong> Dr. Vineeth</p>
-                    <p>Covered vacuum tubes → transistors → ICs timeline and differences between active (transistors, diodes) and passive (R, C, L) components. Introduced lab equipment: breadboard, multimeter, DSO, function generator, soldering kit.</p>
-                </article>
-
-                <article class="journal-day">
-                    <h4>Day 07: Digital Electronics — Logic Gates &amp; Boolean Algebra</h4>
-                    <p>Analog vs Digital, logic gates (AND, OR, NOT, NAND, NOR, XOR, XNOR), number systems, Boolean laws, De Morgan's theorems, and Karnaugh maps for simplification.</p>
-                </article>
-
-                <article class="journal-day">
-                    <h4>Day 08: Combinational Circuits — Adders, MUX, Decoders</h4>
-                    <p>Half adder (S = A ⊕ B, C = A·B), full adder, subtractors, multiplexers/demultiplexers, encoders/decoders, and synthesis vs analysis concepts.</p>
-                </article>
-
-                <article class="journal-day">
-                    <h4>Day 09: Sequential Logic — Flip-Flops &amp; State Machines</h4>
-                    <p>Synchronous vs asynchronous circuits, flip-flop types (SR, JK, D, T), design steps for state machines, state assignment strategies, and state reduction tips.</p>
-                </article>
-
-                <article class="journal-day">
-                    <h4>Day 10: Embedded Systems &amp; Microcontrollers</h4>
-                    <p><strong>Instructor:</strong> Dr. Della Thomas</p>
-                    <p>Embedded system characteristics, microcontroller vs microprocessor, and ATmega328P specs (Arduino Uno).</p>
-                </article>
-
-                <article class="journal-day">
-                    <h4>Day 11: MCU Architecture, GPIO &amp; Communication Protocols</h4>
-                    <p>Memory architectures (Von Neumann vs Harvard), GPIO basics, UART/SPI/I2C, interrupts, timers, ADC, and Arduino bridges.</p>
-                </article>
-
-                <article class="journal-day">
-                    <h4>Day 12: Networking &amp; Cloud Basics — Part 1 (OSI &amp; TCP/IP)</h4>
-                    <p>Walked through the OSI 7 layers, IP vs MAC addresses, ports, DNS, TCP vs UDP, and common network devices/topologies.</p>
-                </article>
-
-                <article class="journal-day">
-                    <h4>Day 13: Networking &amp; Cloud Basics — Part 2 (IoT Protocols &amp; Cloud)</h4>
-                    <p>IoT protocols: MQTT (pub/sub), HTTP/REST, CoAP, WebSocket. Cloud basics and IoT platform options (ThingSpeak, Blynk, Firebase). Service models: IaaS, PaaS, SaaS.</p>
-                </article>
-
-                <article class="journal-day">
-                    <h4>Day 14: Cisco Packet Tracer — Network Simulation Lab</h4>
-                    <p>Hands-on simulation: LANs, routers, subnetting, packet inspection, and commands like <code>ping</code>, <code>ipconfig</code>, and <code>tracert</code>.</p>
-                </article>
-
-                <article class="journal-day">
-                    <h4>Day 15: Introduction to AWS &amp; Docker</h4>
-                    <p>Core IoT cloud services (EC2, S3, IoT Core, Lambda, DynamoDB) and Docker fundamentals (images, containers, Dockerfile).</p>
-                </article>
-
-                <article class="journal-day">
-                    <h4>Day 16: Arduino Programming — Setup, Pins &amp; First Sketches</h4>
-                    <p>Arduino Uno anatomy, `setup()` and `loop()`, core I/O functions, and the first blink sketch:</p>
-                    <pre><code>void setup() {
-  pinMode(13, OUTPUT);
-}
-
-void loop() {
-  digitalWrite(13, HIGH);
-  delay(1000);
-  digitalWrite(13, LOW);
-  delay(1000);
-}
-                    </code></pre>
-                </article>
-
-                <article class="journal-day">
-                    <h4>Day 17: Sensors, Analog Input &amp; Actuators</h4>
-                    <p>Analog reads (`analogRead(A0)` → 0–1023), PWM (`analogWrite`), common sensors (TMP36/LM35, HC-SR04, DHT11, LDR), and actuators (LEDs, buzzers, motors, servos).</p>
-                    <p>Useful function: <code>map()</code> for scaling ADC values to servo angles.</p>
-                </article>
-
-                <article class="journal-summary">
-                    <h4>Summary &amp; Milestones</h4>
-                    <ul>
-                        <li>Phase 01: Electronics for IoT — Completed</li>
-                        <li>Phase 02: Networking &amp; Cloud Basics — Completed</li>
-                        <li>Phase 03: Arduino Programming — Active</li>
-                        <li>Phase 04: Project-cum-Product Development — Upcoming</li>
-                    </ul>
-                    <p>Generated from: <a href="https://portfolio-8a1w.vercel.app/pm-vikas.html" target="_blank" rel="noopener">Original Journal</a></p>
-                </article>
             </div>
         </div>
     </section>
