@@ -978,6 +978,8 @@ img {
     text-align: center;
     position: sticky;
     top: 100px;
+    z-index: 10;
+    overflow: hidden;
 }
 
 .about-avatar-large {
@@ -994,6 +996,8 @@ img {
     font-weight: 800;
     color: white;
     box-shadow: 0 8px 32px var(--primary-glow);
+    position: relative;
+    z-index: 11;
 }
 
 .about-name-card h3 {
