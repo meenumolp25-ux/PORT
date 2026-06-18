@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "Meenumol-Prakash-main/Meenumol-Prakash-main/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/Meenumol-Prakash-main/Meenumol-Prakash-main/$1" }
+  ]
+}
