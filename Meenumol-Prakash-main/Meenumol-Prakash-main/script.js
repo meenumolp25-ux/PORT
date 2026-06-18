@@ -21,6 +21,11 @@ function initJournalModal() {
     let modalContent = modal ? document.getElementById('modalContent') : null;
     const details = document.getElementById('journalDetails');
 
+    // If modal exists but is nested inside a container, move it to body
+    if (modal && modal.parentElement !== document.body) {
+        document.body.appendChild(modal);
+    }
+
     // If modal is missing on the page, create a simple one and append to body
     if (!modal) {
         modal = document.createElement('div');
