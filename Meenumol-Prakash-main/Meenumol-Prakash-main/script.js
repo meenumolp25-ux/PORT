@@ -16,18 +16,64 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===== JOURNAL MODAL HANDLER =====
 function initJournalModal() {
     const cards = document.querySelectorAll('.journal-card');
-    const modal = document.getElementById('journalModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalContent = document.getElementById('modalContent');
+    let modal = document.getElementById('journalModal');
+    let modalTitle = modal ? document.getElementById('modalTitle') : null;
+    let modalContent = modal ? document.getElementById('modalContent') : null;
     const details = document.getElementById('journalDetails');
 
-    if (!modal || !details) return;
+    // If modal is missing on the page, create a simple one and append to body
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'journalModal';
+        modal.className = 'modal';
+        modal.setAttribute('aria-hidden', 'true');
+        modal.innerHTML = `
+            <div class="modal-backdrop"></div>
+            <div class="modal-panel">
+                <button class="modal-close" aria-label="Close">×</button>
+                <div class="modal-body">
+                    <h3 id="modalTitle"></h3>
+                    <div id="modalContent"></div>
+                </div>
+            </div>`;
+        document.body.appendChild(modal);
+        modalTitle = document.getElementById('modalTitle');
+        modalContent = document.getElementById('modalContent');
 
-    const openModal = (day) => {
-        const node = details.querySelector(`[data-day='${day}']`);
-        if (!node) return;
-        modalTitle.innerHTML = node.querySelector('h3') ? node.querySelector('h3').innerHTML : `Day ${day}`;
-        modalContent.innerHTML = node.querySelector('p') ? node.querySelector('p').outerHTML + (node.querySelector('pre') ? node.querySelector('pre').outerHTML : '') : node.innerHTML;
+        // Basic modal styling if not present
+        if (!document.getElementById('journal-modal-style')) {
+            const style = document.createElement('style');
+            style.id = 'journal-modal-style';
+            style.textContent = `
+                .modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 9999; }
+                .modal.show { display: flex; }
+                .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
+                .modal-panel { position: relative; background: var(--bg-card, #fff); color: var(--text, #111); max-width: 760px; width: 94%; border-radius: 12px; padding: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 2; }
+                .modal-close { position: absolute; right: 12px; top: 8px; background: transparent; border: none; font-size: 1.6rem; cursor: pointer; }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+
+    const openModal = (day, fallbackNode) => {
+        // Try find detailed node in hidden details area
+        let node = details ? details.querySelector(`[data-day='${day}']`) : null;
+
+        if (node) {
+            modalTitle.innerHTML = node.querySelector('h3') ? node.querySelector('h3').innerHTML : `Day ${day}`;
+            // copy inner HTML of node (paragraphs, pre blocks, etc.)
+            modalContent.innerHTML = node.innerHTML;
+        } else if (fallbackNode) {
+            // use the card content as fallback
+            const titleEl = fallbackNode.querySelector('h3, h4, .bento-title');
+            const bodyEl = fallbackNode.querySelector('p, .bento-text');
+            modalTitle.innerHTML = titleEl ? titleEl.innerText : `Day ${day}`;
+            modalContent.innerHTML = bodyEl ? bodyEl.outerHTML : fallbackNode.innerHTML;
+        } else {
+            modalTitle.innerHTML = `Day ${day}`;
+            modalContent.innerHTML = `<p>No details available.</p>`;
+        }
+
         modal.classList.add('show');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -39,12 +85,15 @@ function initJournalModal() {
         document.body.style.overflow = '';
     };
 
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            const day = card.getAttribute('data-day');
-            openModal(day);
+    if (cards && cards.length) {
+        cards.forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                const day = card.getAttribute('data-day') || card.querySelector('.vikas-card-number')?.innerText?.replace(/D/, '').trim();
+                openModal(day, card);
+            });
         });
-    });
+    }
 
     modal.querySelectorAll('.modal-close, .modal-backdrop').forEach(el => el.addEventListener('click', closeModal));
 
