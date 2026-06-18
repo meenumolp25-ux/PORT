@@ -277,28 +277,7 @@
                     <div data-day="17"><h3>Day 17 — Sequential Circuits</h3><p>Covered latches, flip-flops, state machines, and timing diagrams. Implemented simple counters and state-based controllers.</p></div>
                 </div>
 
-                <!-- Modal for detailed journal entry -->
-                <div id="journalModal" class="modal" aria-hidden="true">
-                    <div class="modal-backdrop"></div>
-                    <div class="modal-panel">
-                        <button class="modal-close" aria-label="Close">×</button>
-                        <div class="modal-body">
-                            <h3 id="modalTitle"></h3>
-                            <div id="modalContent"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <style>
-                /* Simple modal styles */
-                .modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 2147483640; }
-                .modal.show { display: flex; }
-                .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.45); z-index: 2147483638; }
-                .modal-panel { position: relative; background: var(--bg-card, #fff); color: var(--text, #111); max-width: 760px; width: 94%; border-radius: 12px; padding: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 2147483641; pointer-events: auto; }
-                .modal-close { position: absolute; right: 12px; top: 8px; background: transparent; border: none; font-size: 1.6rem; cursor: pointer; }
-                .modal-body h3 { margin-top: 0; }
-                .journal-card { cursor: pointer; }
-                </style>
+                <!-- Modal is created dynamically by script.js -->
 
             </div>
         </div>

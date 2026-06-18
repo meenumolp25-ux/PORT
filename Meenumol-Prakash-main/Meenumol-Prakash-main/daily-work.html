@@ -240,25 +240,7 @@
                     <div class="bento-content">
                 </div>
                 
-                <!-- Modal for detailed journal entry (shared fallback) -->
-                <div id="journalModal" class="modal" aria-hidden="true" style="display:none;">
-                    <div class="modal-backdrop"></div>
-                    <div class="modal-panel">
-                        <button class="modal-close" aria-label="Close">×</button>
-                        <div class="modal-body">
-                            <h3 id="modalTitle"></h3>
-                            <div id="modalContent"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <style>
-                .modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 2147483640; }
-                .modal.show { display: flex; }
-                .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.45); z-index: 2147483638; }
-                .modal-panel { position: relative; background: var(--bg-card, #fff); color: var(--text, #111); max-width: 760px; width: 94%; border-radius: 12px; padding: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 2147483641; pointer-events: auto; }
-                .modal-close { position: absolute; right: 12px; top: 8px; background: transparent; border: none; font-size: 1.6rem; cursor: pointer; }
-                </style>
+                <!-- Modal is created dynamically by script.js -->
                         <div class="vikas-card-number" style="position:absolute; top:20px; right:24px; font-size:3rem; font-weight:800; opacity:0.05;">D18</div>
                         <h3 class="bento-title">Day 18 — Counters & Timing</h3>
                         <p class="bento-text">Built ripple and synchronous counters, examined clock distribution, and practiced debouncing and timing constraints for reliable operation.</p>
